@@ -21,22 +21,22 @@ O projeto tem como objetivo realizar a gestão de estoque de uma loja de forma g
 ## Telas
 
 **Login**
-<p align="center"><img src=".github/readme/login.png"/></p>
+<p align="center"><img src="./readme/login.png"/></p>
 
 **RecuperarSenha**
-<p align="center"><img src=".github/readme/forgot.png"/></p>
+<p align="center"><img src="./readme/forgot.png"/></p>
 
 **Painel**
-<p align="center"><img src=".github/readme/dashboard.png"/></p>
+<p align="center"><img src="./readme/dashboard.png"/></p>
 
 **AdicioarProduto**
-<p align="center"><img src=".github/readme/addProduct.png"/></p>
+<p align="center"><img src="./readme/addProduct.png"/></p>
 
 **DetalhesProduto**
-<p align="center"><img src=".github/readme/detailProduct.png"/></p>
+<p align="center"><img src="./readme/detailProduct.png"/></p>
 
 **EditarProduto**
-<p align="center"><img src=".github/readme/editProduct.png"/></p>
+<p align="center"><img src="./readme/editProduct.png"/></p>
 
 **EditarPerfil**
-<p align="center"><img src=".github/readme/editProfile.png"/></p>
+<p align="center"><img src="./readme/editProfile.png"/></p>
