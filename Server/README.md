@@ -5,7 +5,7 @@
 
 #### Acesse o projeto utilizado o comando:
 
-### `cd back-end`
+### `cd Server`
 
 #### Para instalar as dependencias digite o comando abaixo:
 
