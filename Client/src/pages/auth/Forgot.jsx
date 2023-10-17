@@ -1,0 +1,69 @@
+//
+// Created by Lucas V A Zampoli o 17/10/23.
+// Copyright 2023 &copy; Zampo: All rights reserved.
+//
+
+import React, { useState } from "react";
+import styles from "./auth.module.scss";
+import { AiOutlineMail } from "react-icons/ai";
+import Card from "../../components/card/Card";
+import { Link } from "react-router-dom";
+import { forgotPassword, validateEmail } from "../../services/authService";
+import { toast } from "react-toastify";
+
+const Forgot = () => {
+  const [email, setEmail] = useState("");
+
+  const forgot = async (e) => {
+    e.preventDefault();
+    if (!email) {
+      return toast.error("Entre com seu E-mail");
+    }
+
+    if (!validateEmail(email)) {
+      return toast.error("Por favor entre com um e-mail valido.");
+    }
+
+    const userData = {
+      email,
+    };
+
+    await forgotPassword(userData);
+    setEmail("");
+  };
+
+  return (
+    <div className={`container ${styles.auth}`}>
+      <Card>
+        <div className={styles.form}>
+          <div className="--flex-center">
+            <AiOutlineMail size={35} color="#999" />
+          </div>
+          <h2>Solicitar Nova Senha</h2>
+
+          <form onSubmit={forgot}>
+            <input
+              type="email"
+              placeholder="Email"
+              required
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+
+            <button type="submit" className="--btn --btn-primary --btn-block">
+              Enviar
+            </button>
+            <div className={styles.links}>
+              <p>
+                <Link to="/login">Retornar para o Login</Link>
+              </p>
+            </div>
+          </form>
+        </div>
+      </Card>
+    </div>
+  );
+};
+
+export default Forgot;
