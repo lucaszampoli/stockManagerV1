@@ -12,10 +12,18 @@ import { AuthModule } from './authMiddleware/auth.module';
 import { UsersService } from 'src/users/users.service';
 import { ProductsModule } from './products/products.module';
 import { CommunicationModule } from './communication/communication.module';
+import { CommunicationService } from './communication/communication.service';
 
 @Module({
-  imports: [PrismaModule, UsersModule, AuthModule, ProductsModule, CommunicationModule],
+  imports: [
+    PrismaModule,
+    UsersModule,
+    AuthModule,
+    ProductsModule,
+    CommunicationModule,
+  ],
   controllers: [AppController],
-  providers: [AppService, UsersService],
+  providers: [AppService, UsersService, CommunicationService],
 })
 export class AppModule {}
+

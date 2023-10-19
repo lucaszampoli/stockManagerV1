@@ -11,10 +11,10 @@ import { CommunicationService } from './communication.service';
 export class CommunicationController {
   constructor(private readonly communicationService: CommunicationService) {}
 
-  @Post()
-  async create(@Body() email) {
-    return await this.communicationService.sendCommunicatio(email);
-  }
+  // @Post()
+  // async create(@Body() email) {
+  //   return await this.communicationService.sendCommunicatio(email);
+  // }
 
   // @Get()
   // sendMail() {

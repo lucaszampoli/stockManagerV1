@@ -6,10 +6,14 @@
 import { Module } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { UsersController } from './users.controller';
+import { CommunicationModule } from 'src/communication/communication.module';
+import { ConfigModule } from '@nestjs/config';
+import { CommunicationService } from 'src/communication/communication.service';
 
 @Module({
+  imports: [ConfigModule.forRoot(), CommunicationModule],
   controllers: [UsersController],
-  providers: [UsersService],
+  providers: [UsersService, CommunicationService],
   exports: [UsersService],
 })
 export class UsersModule {}

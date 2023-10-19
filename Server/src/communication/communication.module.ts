@@ -7,11 +7,10 @@ import { Module } from '@nestjs/common';
 import { CommunicationService } from './communication.service';
 import { CommunicationController } from './communication.controller';
 import { MailerModule } from '@nestjs-modules/mailer';
-import { UsersModule } from 'src/users/users.module';
+//import { UsersModule } from 'src/users/users.module';
 
 @Module({
   imports: [
-    UsersModule,
     MailerModule.forRoot({
       transport: {
         host: 'smtp.gmail.com',
