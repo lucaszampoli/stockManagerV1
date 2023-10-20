@@ -23,32 +23,32 @@ O projeto tem como objetivo realizar a gestão de estoque de uma loja de forma g
 **Login**
 <p align="center"><img src="./readme/login.png"/></p>
 
-**RecuperarSenha**
+**Recuperar Senha**
 <p align="center"><img src="./readme/forgot.png"/></p>
 
-**Painel**
+**Painel Principal**
 <p align="center"><img src="./readme/dashboard.png"/></p>
 
-**AdicioarProduto**
+**Adicionar Produto**
 <p align="center"><img src="./readme/addProduct.png"/></p>
 
-**DetalhesProduto**
+**Detalhes Produto**
 <p align="center"><img src="./readme/detailProduct.png"/></p>
 
-**EditarProduto**
+**Editar Produto**
 <p align="center"><img src="./readme/editProduct.png"/></p>
 
 **Painel Usuarios**
 <p align="center"><img src="./readme/panelUser.png"/></p>
 
-**AdicioarProduto**
+**Adicionar Usuario**
 <p align="center"><img src="./readme/addUser.png"/></p>
 
-**DetalhesProduto**
+**Detalhes Usuario**
 <p align="center"><img src="./readme/detailUser.png"/></p>
 
-**EditarProduto**
+**Editar Usuario**
 <p align="center"><img src="./readme/editUser.png"/></p>
 
-**EditarPerfil**
+**Editar Perfil**
 <p align="center"><img src="./readme/editProfile.png"/></p>
