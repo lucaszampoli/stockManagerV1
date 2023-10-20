@@ -38,5 +38,17 @@ O projeto tem como objetivo realizar a gestão de estoque de uma loja de forma g
 **EditarProduto**
 <p align="center"><img src="./readme/editProduct.png"/></p>
 
+**Painel Usuarios**
+<p align="center"><img src="./readme/panelUser.png"/></p>
+
+**AdicioarProduto**
+<p align="center"><img src="./readme/addUser.png"/></p>
+
+**DetalhesProduto**
+<p align="center"><img src="./readme/detailUser.png"/></p>
+
+**EditarProduto**
+<p align="center"><img src="./readme/editUser.png"/></p>
+
 **EditarPerfil**
 <p align="center"><img src="./readme/editProfile.png"/></p>

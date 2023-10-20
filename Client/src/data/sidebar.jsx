@@ -4,7 +4,7 @@
 //
 
 import { FaTh } from "react-icons/fa";
-import { BiSolidPlusSquare, BiUserCircle } from "react-icons/bi";
+import { BiSolidPlusSquare, BiUserCircle, BiUserPlus } from "react-icons/bi";
 
 
 const menu = [
@@ -17,6 +17,11 @@ const menu = [
     title: "Add Produto",
     icon: <BiSolidPlusSquare />,
     path: "/add-product",
+  },
+  {
+    title: "Add Usuarios",
+    icon: <BiUserPlus />,
+    path: "/users",
   },
   {
     title: "Perfil",

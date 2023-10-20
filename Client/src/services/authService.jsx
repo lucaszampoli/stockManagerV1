@@ -64,7 +64,8 @@ export const loginUser = async (userData) => {
 // Forgot Password or Recuperação de senha
 export const forgotPassword = async (userData) => {
   try {
-    const response = await api.post("/api/v1/communication", userData);
+    const response = await api.post("/api/v1/users/forgot/password/communication", userData);
+    
     if (response.data === '') {
       toast.error("Usuario não encontrado...");
     }

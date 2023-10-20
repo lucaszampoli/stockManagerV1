@@ -1,25 +1,30 @@
+//
+// Created by Lucas V A Zampoli o 17/10/23.
+// Copyright 2023 &copy; Zampo: All rights reserved.
+//
+
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Sidebar from "./components/sidebar/Sidebar";
-//
-// Created by Lucas V A Zampoli o 17/10/23.
-// Copyright 2023 &copy; Zampo: All rights reserved.
-//
-
 import Layout from "./components/layout/Layout";
 import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
+import { getLoginStatus } from "./services/authService";
 import { SET_LOGIN } from "./redux/features/auth/authSlice";
 import AddProduct from "./pages/addProduct/AddProduct";
 import ProductDetail from "./components/product/productDetail/ProductDetail";
 import EditProduct from "./pages/editProduct/EditProduct";
 import PageNotFound from "./pages/notFound/PageNotFound";
 import Forgot from "./pages/auth/Forgot";
+import Users from "./pages/users/Users";
+import AddUser from "./pages/addUser/AddUser";
+import UserDetail from "./components/user/userDetail/UserDetail";
+import EditUser from "./pages/editUser/EditUser";
 import Profile from "./pages/profile/Profile";
 import EditProfile from "./pages/profile/EditProfile";
 
@@ -90,6 +95,46 @@ function App() {
             <Sidebar>
               <Layout>
                 <EditProduct />
+              </Layout>
+            </Sidebar>
+          }
+        />
+        <Route
+          path="/users"
+          element={
+            <Sidebar>
+              <Layout>
+                <Users />
+              </Layout>
+            </Sidebar>
+          }
+        />
+        <Route
+          path="/add-user"
+          element={
+            <Sidebar>
+              <Layout>
+                <AddUser />
+              </Layout>
+            </Sidebar>
+          }
+        />
+        <Route
+          path="/user-detail/:id"
+          element={
+            <Sidebar>
+              <Layout>
+                <UserDetail />
+              </Layout>
+            </Sidebar>
+          }
+        />
+        <Route
+          path="/edit-user/:id"
+          element={
+            <Sidebar>
+              <Layout>
+                <EditUser />
               </Layout>
             </Sidebar>
           }
