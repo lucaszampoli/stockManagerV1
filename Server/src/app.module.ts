@@ -13,6 +13,7 @@ import { UsersService } from 'src/users/users.service';
 import { ProductsModule } from './products/products.module';
 import { CommunicationModule } from './communication/communication.module';
 import { CommunicationService } from './communication/communication.service';
+import { SalersModule } from './salers/salers.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { CommunicationService } from './communication/communication.service';
     AuthModule,
     ProductsModule,
     CommunicationModule,
+    SalersModule,
   ],
   controllers: [AppController],
   providers: [AppService, UsersService, CommunicationService],
