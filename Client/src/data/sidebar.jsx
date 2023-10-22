@@ -26,7 +26,7 @@ const menu = [
   {
     title: "Vendas",
     icon: <BiSolidPurchaseTag />,
-    path: "/orders",
+    path: "/saler",
   },
   {
     title: "Perfil",

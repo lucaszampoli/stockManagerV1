@@ -9,6 +9,9 @@ import productReducer from "../redux/features/product/productSlice";
 import filterReducer from "../redux/features/product/filterSlice";
 import userReducer from "../redux/features/users/userSlice";
 import filterUserReducer from "../redux/features/users/filterUserSlice";
+import salerReducer from "../redux/features/salers/salerSlice";
+import filterSalerReducer from "../redux/features/salers/filterSalerSlice";
+
 
 export const store = configureStore({
   reducer: {
@@ -17,5 +20,7 @@ export const store = configureStore({
     filter: filterReducer,
     user: userReducer,
     filterUser: filterUserReducer,
+    saler: salerReducer,
+    filterSaler: filterSalerReducer,
   },
 });

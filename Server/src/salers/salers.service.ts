@@ -29,18 +29,18 @@ export class SalersService {
     //   data,
     // });
 
-    let data: Prisma.OrderProductCreateInput = {
-      order_id: createSalerDto.order_id,
-      product_id: createSalerDto.product_id,
-      name: createSalerDto.name,
-      quantity: createSalerDto.quantity,
-      price: createSalerDto.price,
-      total: createSalerDto.total,
-    };
+    // let data: Prisma.OrderProductCreateInput = {
+    //   order_id: createSalerDto.order_id,
+    //   product_id: createSalerDto.product_id,
+    //   name: createSalerDto.name,
+    //   quantity: createSalerDto.quantity,
+    //   price: createSalerDto.price,
+    //   total: createSalerDto.total,
+    // };
 
-    return this.prismaService.orderProduct.create({
-      data,
-    });
+    // return this.prismaService.orderProduct.create({
+    //   data,
+    // });
   }
 
   async findAll() {

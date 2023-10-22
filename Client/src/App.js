@@ -27,6 +27,8 @@ import UserDetail from "./components/user/userDetail/UserDetail";
 import EditUser from "./pages/editUser/EditUser";
 import Profile from "./pages/profile/Profile";
 import EditProfile from "./pages/profile/EditProfile";
+import Saler from "./pages/saler/Saler";
+import SalerDetail from "./components/saler/salerDetail/SalerDetail";
 
 
 axios.defaults.withCredentials = true;
@@ -135,6 +137,26 @@ function App() {
             <Sidebar>
               <Layout>
                 <EditUser />
+              </Layout>
+            </Sidebar>
+          }
+        />
+        <Route
+          path="/saler"
+          element={
+            <Sidebar>
+              <Layout>
+                <Saler />
+              </Layout>
+            </Sidebar>
+          }
+        />
+        <Route
+          path="/saler-detail/:id"
+          element={
+            <Sidebar>
+              <Layout>
+                <SalerDetail />
               </Layout>
             </Sidebar>
           }

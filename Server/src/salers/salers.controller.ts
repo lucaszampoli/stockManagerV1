@@ -2,8 +2,9 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { SalersService } from './salers.service';
 import { CreateSalerDto } from './dto/create-saler.dto';
 import { UpdateSalerDto } from './dto/update-saler.dto';
+import { SalerSerializer } from './salers.serializer';
 
-@Controller('api/v1/saler')
+@Controller('api/v1/salers')
 export class SalersController {
   constructor(private readonly salersService: SalersService) {}
 
@@ -13,8 +14,11 @@ export class SalersController {
   }
 
   @Get()
-  findAll() {
-    return this.salersService.findAll();
+  async findAll() {
+    //const orders = await this.salersService.findAll();
+    //return orders.map((order) => new SalerSerializer(order));
+    //const aux = await this.salersService.findAll();
+    return await this.salersService.findAll();
   }
 
   @Get(':id')
