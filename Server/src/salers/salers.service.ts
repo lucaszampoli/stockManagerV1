@@ -7,14 +7,14 @@
 import { Injectable } from '@nestjs/common';
 import { CreateSalerDto } from './dto/create-saler.dto';
 import { UpdateSalerDto } from './dto/update-saler.dto';
-import { PrismaService } from '../prisma/prisma/prisma.service';
+//import { PrismaService } from '../prisma/prisma/prisma.service';
 import { PrismaClient } from '@prisma/client';
-import { Prisma } from '@prisma/client';
+//import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class SalersService {
   constructor(
-    private prismaService: PrismaService,
+    //private prismaService: PrismaService,
   ) {}
   create(createSalerDto: CreateSalerDto) {
     // let data: Prisma.OrderCreateInput = {
@@ -47,16 +47,32 @@ export class SalersService {
     //return this.prismaService.order.findMany();
     //const order = 'Order';
     const prisma = new PrismaClient();
-    return await prisma.$queryRaw`SELECT * FROM jullianibazar.Order as od JOIN User as us ON od.user_id=us.id`;
+    return await prisma.$queryRaw`SELECT od.id, 
+                                         od.payment_method,
+                                         od.total,
+                                         od.date_added,
+                                         us.name 
+                                          FROM jullianibazar.Order as od 
+                                          JOIN User as us ON od.user_id=us.id`;
     //return await prisma.$queryRawUnsafe('SELECT * FROM jullianibazar.Order as od JOIN User as us ON od.user_id=us.id');
   }
 
-  findOne(id: number) {
-    return this.prismaService.order.findUniqueOrThrow({
-      where: {
-        id,
-      },
-    });
+  async findOne(id: number) {
+    const prisma = new PrismaClient();
+    return await prisma.$queryRaw`SELECT od.id, 
+                                         od.payment_method,
+                                         od.total,
+                                         od.date_added,
+                                         us.name,
+                                         op.product_id,
+                                         op.name as product_name,
+                                         op.quantity,
+                                         op.price,
+                                         op.total as product_total 
+                                          FROM jullianibazar.Order as od 
+                                          JOIN User as us ON od.user_id=us.id
+                                          JOIN OrderProduct as op ON op.order_id=od.id
+                                        WHERE od.id = ${id}`;
   }
 
   update(id: number, updateSalerDto: UpdateSalerDto) {

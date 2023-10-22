@@ -124,7 +124,7 @@ const salerSlice = createSlice({
       const array = [];
       salers.map((item) => {
         const { total } = item;
-        const salerValue = parseInt(total);
+        const salerValue = parseFloat(total);
         return array.push(salerValue);
       });
       

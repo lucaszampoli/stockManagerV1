@@ -25,6 +25,7 @@ const getSaler = async (id) => {
   const token = await JSON.parse(localStorage.getItem("token"));
 
     const response = await api.get("/api/v1/salers/"+id);
+    console.log("passou aqui", response.data);
     return response.data;
 };
 

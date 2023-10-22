@@ -1,5 +1,5 @@
 //
-// Created by Lucas V A Zampoli o 17/10/23.
+// Created by Lucas V A Zampoli o 22/10/23.
 // Copyright 2023 &copy; Zampo: All rights reserved.
 //
 
@@ -35,41 +35,51 @@ const SalerDetail = () => {
       console.log(message);
     }
   }, [isLoggedIn, isError, message, dispatch]);
-
+  console.log(saler);
   return (
     <div className="saler-detail">
       <h3 className="--mt">Detalhes da Venda</h3>
-      <Card cardClass="card">
-        {isLoading && <SpinnerImg />}
-        {saler && (
-          <div className="detail">
-            <Card cardClass="group">
-            <p>
-              <b>&rarr; N venda: </b> {saler.id}
-            </p>
-            </Card>
-            <h4>Nome do vendedor: {saler.name}</h4>
-            <hr />
-            <h4>
-              <span>Metodo de Pagemento: </span> &nbsp; {saler.payment_method}
-            </h4>
-            <p>
-              <b>&rarr; data : </b> {saler.data_added}
-            </p>
-            <p>
-              <b>&rarr; Total : </b> 
-              {Intl.NumberFormat('pt-br', {style: 'currency', currency: 'BRL'}).format(saler.total)}
-            </p>
-            
-            
-            <hr />
-            <p>
-              <b>&rarr; Descrição : </b> 
-            </p>
-            
-          </div>
-        )}
-      </Card>
+      <div className="table">
+          {isLoading ? (
+            <p>-- Nenhuma venda encontrada...</p>
+          ) : (
+            <table>
+              <thead>
+                <tr>
+                  <th>Ordem</th>
+                  <th>Nome do vendedor</th>
+                  <th>Metodo de pagamento</th>
+                  <th>Data da venda</th>
+                  <th>Codigo do Produto</th>
+                  <th>Produto</th>
+                  <th>quantity</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {saler.map((salers, index) => {
+                  const { id, name, payment_method, date_added, total } = salers;
+                  return (
+                    <tr key={id}>
+                      <td>{index + 1}</td>
+                      <td>{name}</td>
+                      <td>{payment_method}</td>
+                      <td>
+                        {date_added}
+                      </td>
+                      <td>
+                        {date_added}
+                      </td>
+                      <td>
+                        {Intl.NumberFormat('pt-br', {style: 'currency', currency: 'BRL'}).format(total)}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          )};
+        </div>
     </div>
   );
 };
