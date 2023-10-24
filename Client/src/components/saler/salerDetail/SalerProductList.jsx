@@ -93,7 +93,7 @@ console.log("salers list", orderProducts);
       <div className="table">
         <div className="--flex-between --flex-dir-column">
           <span>
-            <h3>Resumo do Pedido</h3>
+            <h3>Itens do Pedido</h3>
           </span>
           <span>
             <Search

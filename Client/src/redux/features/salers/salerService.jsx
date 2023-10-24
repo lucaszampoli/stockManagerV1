@@ -24,7 +24,7 @@ const getSaler = async (id) => {
   // Get token/Parse or Pega token e da parse
   const token = await JSON.parse(localStorage.getItem("token"));
 
-    const response = await api.get("/api/v1/salers/"+id);
+    const response = await api.get("/api/v1/salers/getSaler/"+id);
     console.log("passou aqui", response.data);
     return response.data;
 };

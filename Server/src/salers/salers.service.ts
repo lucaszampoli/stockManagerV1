@@ -46,7 +46,7 @@ export class SalersService {
   async findAll() {
     //return this.prismaService.order.findMany();
     //const order = 'Order';
-    const prisma = new PrismaClient();
+    const prisma  = new PrismaClient;
     return await prisma.$queryRaw`SELECT od.id, 
                                          od.payment_method,
                                          od.total,
@@ -57,8 +57,21 @@ export class SalersService {
     //return await prisma.$queryRawUnsafe('SELECT * FROM jullianibazar.Order as od JOIN User as us ON od.user_id=us.id');
   }
 
-  async findOne(order_id: number) {
-    return this.prismaService.orderProduct.findMany({
+  async findOneOrder(id: number) {
+    const prisma = new PrismaClient;
+    return await prisma.$queryRaw`SELECT od.id, 
+                                            od.payment_method,
+                                            od.total,
+                                            od.date_added,
+                                            us.name
+                                            FROM jullianibazar.Order as od 
+                                            JOIN User as us ON od.user_id=us.id
+                                          WHERE od.id = ${id}`
+    //return await prisma.$queryRawUnsafe('SELECT * FROM jullianibazar.Order as od JOIN User as us ON od.user_id=us.id');
+  }
+
+  async findOneOrderProduct(order_id: number) {
+    return await this.prismaService.orderProduct.findMany({
       where: {
         order_id: order_id,
       },

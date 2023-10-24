@@ -15,15 +15,17 @@ export class SalersController {
 
   @Get()
   async findAll() {
-    //const orders = await this.salersService.findAll();
-    //return orders.map((order) => new SalerSerializer(order));
-    //const aux = await this.salersService.findAll();
     return await this.salersService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.salersService.findOne(+id);
+  @Get('getOrderProductsSaler/:id')
+  getOrderProductsSaler(@Param('id') id: string) {
+    return this.salersService.findOneOrderProduct(+id);
+  }
+
+  @Get('getSaler/:id')
+  getSaler(@Param('id') id: string) {
+    return this.salersService.findOneOrder(+id);
   }
 
   @Patch(':id')

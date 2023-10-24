@@ -5,23 +5,79 @@
 
 import React, { useEffect } from "react";
 import "./SalerDetail.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { getSaler } from "../../../redux/features/salers/salerSlice";
+import { selectIsLoggedIn } from "../../../redux/features/auth/authSlice";
+import { SpinnerImg } from "../../loader/Loader";
 
 // Format Amount
 export const formatNumbers = (x) => {
   return x.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
 };
 
-const SalerOrderSummary = ({ orderProducts }) => {
+export const formatDate = (x) => {
+  //let dateObj = new Date()
+
+  let dateString = x.toLocaleString('pt-BR', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute:'2-digit',
+      second:'2-digit'
+  }).replace(/\//g, '-');
+  console.log("dateString", dateString);
+  
+  console.log(dateString)
+  return dateString;
+};
+
+const SalerOrderSummary = () => {
   const dispatch = useDispatch();
-console.log("olha o orderProduct", orderProducts);
   const { id } = useParams();
+
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const { saler, isLoading, isError, message } = useSelector(
+    (state) => state.saler
+  );
+  console.log("Este é o salerrrrr", saler);
+  
+  
+  useEffect(() => {
+    if (isLoggedIn === true) {
+      dispatch(getSaler(id));
+    }
+
+    if (isError) {
+      console.log(message);
+    }
+  }, [isLoggedIn, isError, message, dispatch]);
+
   return (
     <div className="product-summary">
-      <h3 className="--mt">Pedido</h3>
+      <h3 className="--mt">Resumo do Pedido</h3>
+      {isLoading && <SpinnerImg />}
+
       <div className="info-summary">
-        Order : {id}
+      {saler && (
+          <div className="detail"> 
+            <h4>Nº Pedido : {saler[0].id}</h4>
+            <h4>
+              <span>Total : {Intl.NumberFormat('pt-br', {style: 'currency', currency: 'BRL'}).format(saler[0].total)}</span>
+            </h4>
+            <p>
+              <b>&rarr; Metodo de Pagamento : </b> {saler[0].payment_method}
+            </p>
+            <p>
+              <b>&rarr; Data : </b> {`${formatDate(saler[0].date_added)}  `}
+            </p>
+            <p>
+              <b>&rarr; Vendedor : </b> {saler[0].name}
+            </p>
+            <hr />
+          </div>
+        )}
       </div>
     </div>
   );

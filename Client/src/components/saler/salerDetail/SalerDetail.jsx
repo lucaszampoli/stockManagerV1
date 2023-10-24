@@ -24,7 +24,7 @@ const SalerDetail = () => {
   );
 console.log("este esta no detail", orderProducts);
   useEffect(()  => {
-    if (isLoggedIn === true && id != null) {
+    if (isLoggedIn === true) {
       dispatch(getOrderProductsSaler(id));
       console.log("entrou no if");
     }
@@ -35,7 +35,7 @@ console.log("este esta no detail", orderProducts);
   }, [isLoggedIn, isError, message, dispatch]);
   return (
     <div>
-      <SalerOrderSummary orderProducts={orderProducts} />
+      <SalerOrderSummary />
       <SalerProductList orderProducts={orderProducts} isLoading={isLoading} />
     </div>
   );
