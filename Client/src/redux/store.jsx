@@ -11,6 +11,8 @@ import userReducer from "../redux/features/users/userSlice";
 import filterUserReducer from "../redux/features/users/filterUserSlice";
 import salerReducer from "../redux/features/salers/salerSlice";
 import filterSalerReducer from "../redux/features/salers/filterSalerSlice";
+import orderProductReducer from "../redux/features/orderProduct/orderProductSlice";
+import filterOrderProductReducer from "../redux/features/orderProduct/filterOrderProductSlice";
 
 
 export const store = configureStore({
@@ -22,5 +24,7 @@ export const store = configureStore({
     filterUser: filterUserReducer,
     saler: salerReducer,
     filterSaler: filterSalerReducer,
+    orderProduct: orderProductReducer,
+    filterOrderProduct: filterOrderProductReducer,
   },
 });

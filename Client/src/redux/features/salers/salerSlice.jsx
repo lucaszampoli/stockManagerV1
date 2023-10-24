@@ -43,6 +43,7 @@ export const getSaler = createAsyncThunk(
   "salers/getSaler",
   async (id, thunkAPI) => {
     try {
+      console.log("se liga", await salerService.getSaler(id));
       return await salerService.getSaler(id);
     } catch (error) {
       const message =
