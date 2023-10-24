@@ -17,19 +17,8 @@ export const formatNumbers = (x) => {
 };
 
 export const formatDate = (x) => {
-  //let dateObj = new Date()
-
-  let dateString = x.toLocaleString('pt-BR', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute:'2-digit',
-      second:'2-digit'
-  }).replace(/\//g, '-');
-  console.log("dateString", dateString);
-  
-  console.log(dateString)
+  let dateString = x.slice(0,19).replace('T', ' ').replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
+  //let dateString = aux.replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
   return dateString;
 };
 

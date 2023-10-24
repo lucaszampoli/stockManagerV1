@@ -28,6 +28,12 @@ export const formatNumbers = (x) => {
   return x.replace('.', ',').replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
 };
 
+export const formatDate = (x) => {
+  let dateString = x.slice(0,19).replace('T', ' ').replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
+  //let dateString = aux.replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');
+  return dateString;
+};
+
 const SalerList = ({ salers, isLoading }) => {
   const [search, setSearch] = useState("");
   const filteredSalers = useSelector(selectFilteredSalers);
@@ -130,7 +136,7 @@ const SalerList = ({ salers, isLoading }) => {
                       <td>{shortenText(name, 16)}</td>
                       <td>{payment_method}</td>
                       <td>
-                        {date_added}
+                      {`${formatDate(date_added)}  `}
                       </td>
                       <td>
                         {Intl.NumberFormat('pt-br', {style: 'currency', currency: 'BRL'}).format(total)}
