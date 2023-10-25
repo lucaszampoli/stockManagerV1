@@ -8,7 +8,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from '../prisma/prisma/prisma.service';
 import * as bcrypt from 'bcrypt';
-import { Prisma } from '@prisma/client';
+//import { Prisma } from '@prisma/client';
 import { CommunicationService } from 'src/communication/communication.service';
 
 @Injectable()
@@ -20,7 +20,7 @@ export class UsersService {
 
   // Create user or cria usuario
   async create(createUserDto: CreateUserDto) {
-    const data: Prisma.UserCreateInput = {
+    const data = {
       name: createUserDto.name,
       email: createUserDto.email,
       profile: createUserDto.profile,
@@ -58,7 +58,7 @@ export class UsersService {
 
   //Update User or Atualiza usuario
   async update(id: number, updateUserDto: UpdateUserDto) {
-    const data: Prisma.UserUpdateInput = {
+    const data = {
       name: updateUserDto.name,
       email: updateUserDto.email,
       profile: updateUserDto.profile,
@@ -73,7 +73,7 @@ export class UsersService {
 
   //Update User with specific data or Atualiza usuario com informaçoes especificas para preservar a senha atual
   async updateSpecificData(id: number, updateUserDto: UpdateUserDto) {
-    const data: Prisma.UserUpdateInput = {
+    const data = {
       name: updateUserDto.name,
       email: updateUserDto.email,
       profile: updateUserDto.profile,
@@ -94,7 +94,7 @@ export class UsersService {
   }
 
   async updateUser(id: number, updateUserDto: UpdateUserDto) {
-    const data: Prisma.UserUpdateInput = {
+    const data = {
       name: updateUserDto.name,
       profile: updateUserDto.profile,
       status: updateUserDto.status,

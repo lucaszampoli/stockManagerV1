@@ -7,7 +7,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { PrismaService } from '../prisma/prisma/prisma.service';
-import { Prisma } from '@prisma/client';
+//import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class ProductsService {
@@ -16,7 +16,7 @@ export class ProductsService {
   async create(
     createProductDto: CreateProductDto & { file: Express.Multer.File },
   ) {
-    const data: Prisma.ProductCreateInput = {
+    const data = {
       name: createProductDto.name,
       sku: createProductDto.sku,
       category: createProductDto.category,
@@ -47,7 +47,7 @@ export class ProductsService {
     updateProductDto: UpdateProductDto & { file?: Express.Multer.File },
   ) {
     if (!updateProductDto.file) {
-      const data: Prisma.ProductUpdateInput = {
+      const data = {
         name: updateProductDto.name,
         sku: updateProductDto.sku,
         category: updateProductDto.category,
@@ -60,7 +60,7 @@ export class ProductsService {
         data: data,
       });
     } else {
-      const data: Prisma.ProductUpdateInput = {
+      const data = {
         name: updateProductDto.name,
         sku: updateProductDto.sku,
         category: updateProductDto.category,

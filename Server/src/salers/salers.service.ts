@@ -8,7 +8,8 @@ import { Injectable } from '@nestjs/common';
 import { CreateSalerDto } from './dto/create-saler.dto';
 import { UpdateSalerDto } from './dto/update-saler.dto';
 import { PrismaService } from '../prisma/prisma/prisma.service';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '../prisma/prisma.client';
+
 //import { Prisma } from '@prisma/client';
 
 @Injectable()
@@ -46,8 +47,8 @@ export class SalersService {
   async findAll() {
     //return this.prismaService.order.findMany();
     //const order = 'Order';
-    const prisma  = new PrismaClient;
-    return await prisma.$queryRaw`SELECT od.id, 
+    const prismaClient  = prisma;
+    return await prismaClient.$queryRaw`SELECT od.id, 
                                          od.payment_method,
                                          od.total,
                                          od.date_added,
@@ -58,8 +59,8 @@ export class SalersService {
   }
 
   async findOneOrder(id: number) {
-    const prisma = new PrismaClient;
-    return await prisma.$queryRaw`SELECT od.id, 
+    const prismaClient = prisma;
+    return await prismaClient.$queryRaw`SELECT od.id, 
                                             od.payment_method,
                                             od.total,
                                             od.date_added,
